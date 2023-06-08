@@ -1,24 +1,24 @@
 CREATE SCHEMA security;
 
 CREATE TABLE security.roles (
-  role_id SERIAL PRIMARY KEY,
+  role_id   SERIAL PRIMARY KEY,
   role_name VARCHAR UNIQUE NOT NULL
 );
 
 CREATE TABLE security.users (
-  user_id SERIAL PRIMARY KEY,
+  user_id  SERIAL PRIMARY KEY,
   username VARCHAR UNIQUE NOT NULL,
   password VARCHAR NOT NULL,
-  role_id INT REFERENCES security.roles(role_id)
+  role_id  INT REFERENCES security.roles(role_id)
 );
 
 CREATE TABLE security.permissions (
-  permission_id SERIAL PRIMARY KEY,
+  permission_id   SERIAL PRIMARY KEY,
   permission_name VARCHAR UNIQUE NOT NULL
 );
 
 CREATE TABLE security.role_permissions (
-  role_id INT REFERENCES security.roles(role_id),
+  role_id       INT REFERENCES security.roles(role_id),
   permission_id INT REFERENCES security.permissions(permission_id),
   PRIMARY KEY (role_id, permission_id)
 );
