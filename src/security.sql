@@ -23,12 +23,15 @@ CREATE TABLE security.role_permissions (
   PRIMARY KEY (role_id, permission_id)
 );
 
-INSERT INTO security.roles (role_name) VALUES ('cashier');
-INSERT INTO security.roles (role_name) VALUES ('admin');
+INSERT INTO security.roles (role_name) 
+VALUES ('cashier'),
+       ('admin');
 
-INSERT INTO security.permissions (permission_name) VALUES ('check tickets');
-INSERT INTO security.permissions (permission_name) VALUES ('edit schedule');
+INSERT INTO security.permissions (permission_name) 
+VALUES ('check tickets'),
+       ('edit schedule');
 
-INSERT INTO security.role_permissions (role_id, permission_id) VALUES (1, 1);
-INSERT INTO security.role_permissions (role_id, permission_id) VALUES (2, 1);
-INSERT INTO security.role_permissions (role_id, permission_id) VALUES (2, 2);
+INSERT INTO security.role_permissions (role_id, permission_id) 
+VALUES (1, 1),
+       (2, 1),
+       (2, 2);
