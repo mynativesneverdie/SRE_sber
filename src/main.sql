@@ -50,7 +50,7 @@ VALUES (1, '3-Vokzala', 'Moscow', 'CFO'),
     
 INSERT INTO route (id, id_start_station, id_finish_station, lenght)
 VALUES (1, 1, 2, 800.5),
-	   (2, 2, 1, 800.5),
+	   (2, 2, 1, 800.5);
 
 INSERT INTO schedule (id, id_train, id_route, date_start, time_start, date_finish, time_finish)
 VALUES (1, 1, 1, '2023-06-07', '13:00:00', '2023-06-08', '05:00:00'),
@@ -61,7 +61,10 @@ VALUES (1, 1, 1, '2023-06-07', '13:00:00', '2023-06-08', '05:00:00'),
 INSERT INTO ticket (id, id_schedule, price, status)
 VALUES (1, 1, 1500, 'free'),
        (2, 1, 1500, 'free'),
-       (3, 1, 1500, 'sold');
+       (3, 1, 1500, 'sold'),
+       (4, 3, 1500, 'free'),
+       (5, 3, 1500, 'free'),
+       (6, 3, 1500, 'sold');
 
 CREATE INDEX IF NOT EXISTS idx_schedule_id_train ON schedule USING btree (id_train);
 CREATE INDEX IF NOT EXISTS idx_schedule_id_route ON schedule USING btree (id_route);
